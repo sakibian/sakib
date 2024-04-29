@@ -1,3 +1,4 @@
+import Cart from "./Cart";
 import User from "./User";
 function App() {
   const myName = "Bakibillah Sakib";
@@ -23,14 +24,17 @@ function App() {
   ];
 
   const ValidPassword = () => <h1>Valid Password</h1>;
-  const InValidPassword = () => <h1>InValid Password</h1>;
+  const InValidPassword = () => <h1>Invalid Password</h1>;
 
   const Password = ({ isValid }) => {
-    if (isValid) {
-      return <ValidPassword />;
-    }
+    // if (isValid) {
+    //   return <ValidPassword />;
+    // }
 
-    return <InValidPassword />;
+    // return <InValidPassword />;
+
+    // Ternary
+    return isValid ? <ValidPassword /> : <InValidPassword />;
   };
 
   return (
@@ -63,7 +67,8 @@ function App() {
         <h1>Hello I'm a children</h1>
       </User>
 
-      <Password isValid={true} />
+      <Password isValid={false} />
+      <Cart />
       {/* 1:26:12 */}
     </>
   );
