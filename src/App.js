@@ -1,5 +1,7 @@
 import Cart from "./Cart";
 import User from "./User";
+import { useState } from "react";
+
 function App() {
   const myName = "Bakibillah Sakib";
   const multiply = (a, b) => a * b;
@@ -37,8 +39,98 @@ function App() {
     return isValid ? <ValidPassword /> : <InValidPassword />;
   };
 
+  const styles = {
+    color: "white",
+    backgroundColor: "teal",
+    padding: "10px",
+  };
+  // Events
+  const handleClick = (a, b) => {
+    console.log(a + b);
+  };
+  const Button = () => {
+    return <button onClick={() => handleClick(2, 2)}>Click</button>;
+  };
+
+  const Copy = () => {
+    const copyHandler = () => {
+      console.log("stop copying my content!!!");
+      console.log("Yo!! stop stealing my content!!!");
+    };
+    return (
+      <>
+        <p onCopy={copyHandler}>
+          TLDRLoongson's CPUs have decent performance per clock but struggle
+          with low clock speeds, core count deficit, and software optimization.
+          Their most recent 3A5000 and 3A6000 CPUs continue this trend.{" "}
+        </p>
+      </>
+    );
+  };
+
+  const Movie = () => {
+    const mouseHandler = () => {
+      console.log("You hoover me!!");
+    };
+    return (
+      <>
+        <p onMouseMove={mouseHandler}>
+          TLDRLoongson's CPUs have decent performance per clock but struggle
+          with low clock speeds, core count deficit, and software optimization.
+          Their most recent 3A5000 and 3A6000 CPUs continue this trend.{" "}
+        </p>
+      </>
+    );
+  };
+
+  // States
+  const Counter = () => {
+    const [count, setCount] = useState(0);
+    const [username, setUsername] = useState("Unknown");
+    const [friends, setFriends] = useState(["Nubair", "Nusair"]);
+    const increment = () => {
+      setCount(count + 1);
+    };
+    const decrement = () => {
+      setCount(count - 1);
+    };
+
+    const changeName = () => {
+      setUsername("Bakibillah Sakib");
+    };
+
+    // Change array states by using useState hooks
+
+    const addOne = () => setFriends([...friends, "Sakib"]);
+
+    const removeOne = () => setFriends(friends.filter((f) => f !== "Nusair"));
+
+    const updateOne = () =>
+      setFriends(
+        friends.map((f) => (f === "Nubair" ? "Syed Hadibillah Nubair" : f))
+      );
+
+    // 2:19:49
+
+    return (
+      <>
+        <h1>{count}</h1>
+        <button onClick={increment}>+</button>
+        <button onClick={decrement}>-</button>
+        <h4>{username}</h4>
+        <button onClick={changeName}>changeName</button>
+        {friends.map((f) => (
+          <li key={Math.random()}>{f}</li>
+        ))}
+        <button onClick={addOne}>Add One</button>
+        <button onClick={removeOne}>Remove One</button>
+        <button onClick={updateOne}>Update One</button>
+      </>
+    );
+  };
   return (
     <>
+      <Counter />
       <h1>{myName}</h1>
       <p>2 * 2 = {2 * 2}</p>
       <p>My Friend List: {["Ammar", "Nasif", "Nafis"]}</p>
@@ -69,7 +161,32 @@ function App() {
 
       <Password isValid={false} />
       <Cart />
-      {/* 1:26:12 */}
+      {/* 1:31:37 */}
+      <h1
+        style={{
+          color: styles.color,
+          backgroundColor: styles.backgroundColor,
+          padding: styles.padding,
+        }}
+      >
+        Hello I'm React
+      </h1>
+      {/* <div>
+        <Button variant="primary">Primary</Button>{" "}
+        <Button variant="secondary">Secondary</Button>{" "}
+        <Button variant="success">Success</Button>{" "}
+        <Button variant="warning">Warning</Button>{" "}
+        <Button variant="danger">Danger</Button>{" "}
+        <Button variant="info">Info</Button>{" "}
+        <Button variant="light">Light</Button>{" "}
+        <Button variant="dark">Dark</Button>
+        <Button variant="link">Link</Button>
+      </div>
+      <h1 class="text-3xl font-bold underline text-orange-800">Hello world!</h1> */}
+      <Button />
+
+      <Copy />
+      <Movie />
     </>
   );
 }
