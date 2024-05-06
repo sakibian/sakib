@@ -6,10 +6,12 @@ import Events from "./components/Events";
 import Styling from "./components/Styling";
 import Counter from "./components/Counter";
 import { useEffect, useState } from "react";
+import PropDrilling from "./components/PropDrilling";
 
 function App() {
   return (
     <>
+      <PropDrilling />
       <Basic />
       <User
         img="https://avatars.githubusercontent.com/u/40847839?v=4"
