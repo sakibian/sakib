@@ -7,10 +7,15 @@ import Styling from "./components/Styling";
 import Counter from "./components/Counter";
 import { useEffect, useState } from "react";
 import PropDrilling from "./components/PropDrilling";
+import Reducer from "./components/UseReducer";
+import UseRef from "./components/UseRef";
 
+// 3:21:00
 function App() {
   return (
     <>
+      <UseRef />
+      <Reducer />
       <PropDrilling />
       <Basic />
       <User
