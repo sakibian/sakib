@@ -1,17 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
 function Counter() {
-  const [username1, setUsername1] = useState("");
+  const [username, setUsername] = useState("");
   const [data, setData] = useState([]);
   const [value, setValue] = useState(0);
 
   const handleChange = (event) => {
-    setUsername1(event.target.value);
-    setUsername1("");
+    setUsername(event.target.value);
+    setUsername("");
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`You typed: ${username1}`);
+    console.log(`You typed: ${username}`);
   };
 
   // 2:33:06
@@ -49,7 +49,7 @@ function Counter() {
       <button onClick={() => setValue(value + 1)}>Click me</button>
       <h1>Form Demo</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={username1} onChange={handleChange} />
+        <input type="text" value={username} onChange={handleChange} />
         <button>Submit</button>
       </form>
     </div>
