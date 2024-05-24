@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 
 function generatedId() {
-  return Math.floor(Math.random() * 10);
+  return Math.floor(Math.random() * 100);
 }
 
 function Todo() {
@@ -19,9 +19,9 @@ function Todo() {
     setInput("");
   };
 
-  const removeTodo = (id) => {
+  const removeTodo = (id) =>
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
-  };
+
   // 3:38:52sc
   return (
     <>
@@ -40,7 +40,7 @@ function Todo() {
             return (
               <li key={id} className="todo">
                 <span>{text}</span>
-                <button className="close" onClick={() => removeTodo}>
+                <button className="close" onClick={() => removeTodo(id)}>
                   X
                 </button>
               </li>
